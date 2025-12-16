@@ -1,15 +1,15 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vendas</title>
-  <!-- Incluindo Bootstrap CSS -->
+  <title>Usuários</title>
+
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-info">
     <a class="navbar-brand" href="/">Sorveteria</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -72,43 +72,44 @@
         <li class="nav-item">
           <a class="nav-link text-dark" href="/admin/">Administração</a>
         </li>
+
+
       </ul>
     </div>
   </nav>
 
- <div class="container mt-5">
-    <h2 class="mb-4">Tabela de Vendas</h2>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">DataVenda</th>
-              <th scope="col">ValorTotal</th>
-              <th scope="col">FormaPag</th>
-              <th scope="col">Desconto_item</th>
-              <th scope="col">Valor_final</th>
-              <th scope="col">Clientes_idClientes</th>
-              <th scope="col">Vendedor_idVendedor</th>
-            </tr>
-            {% for v in vendas %}
-          </thead>
-          <tbody>
-            <td>{{ v.data_venda }}</td>
-            <td>{{ v.valor_total }}</td>
-            <td>{{ v.forma_pag }}</td>
-            <td>{{ v.desconto_item }}</td>
-            <td>{{ v.valor_final }}</td>
-            <td>{{ v.cliente }}</td>
-            <td>{{ v.vendedor }}</td>
-          </tbody>
-           {% endfor %} 
-        </table>
-      </div>
-    </div>
+  <div class="container mt-5">
+    <h2 class="mb-4">Tabela de Usuários</h2>
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-light">
+        <tr>
+          <th>Login</th>
+          <th>Tipo de Usuário</th>
+          <th>Vendedor</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for u in usuarios %}
+        <tr>
+          <td>{{ u.login }}</td>
+          <td>{{ u.tipo_usuario }}</td>
+          <td>{{ u.vendedor }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="3" class="text-center">Nenhum usuário cadastrado</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
 
-  <!--Incluindo jQuery e Bootstrap JS -->
+  <!-- jQuery e Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
